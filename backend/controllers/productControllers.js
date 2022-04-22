@@ -24,10 +24,11 @@ module.exports.addProduct__controller = async (req, res) => {
       req.file.path,
 
       {
-        folder: "e-com_next",
+        folder: "ecom_next",
         quality: 60,
       }
     );
+
     const newProd = new ProductModel({
       name,
       description,
@@ -37,11 +38,11 @@ module.exports.addProduct__controller = async (req, res) => {
       asset_id: imageInfo.asset_id,
       createdAt: req.user._id,
     });
+
     const saveInfo = await newProd.save();
 
-    return res.status(200).json({ success: "New product added" });
+    return res.status(201).json({ success: "New product added" });
   } catch (error) {
-    console.log(error);
-    return res.status(400).json({ error: "Something went wrong" });
+    return res.status(400).json({ error: "Something went wrong", error });
   }
 };

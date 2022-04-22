@@ -67,15 +67,16 @@ module.exports.register__Controller = async (req, res) => {
     newUser
       .save()
       .then((result) => {
-        // var token = jwt.sign({ _id: result._id }, process.env.SECRET_KEY);
         return res.status(201).json({
           success: "Registration success,Please verify your email",
         });
       })
       .catch((err) => {
+        console.log(err);
         return res.status(400).json({ error: "Something went wrong" });
       });
   } catch (error) {
+    console.log(error);
     return res.status(400).json({ error: "Something went wrong" });
   }
 };

@@ -16,14 +16,14 @@ module.exports = {
 
     jwt.verify(token, process.env.SECRET_KEY, (err, payload) => {
       if (err) {
-        return res.status(401).json({
+        return res.status(404).json({
           error: "You must be logged in",
         });
       }
       let { _id } = payload;
       User.findById({ _id }).then((userData) => {
         req.user = userData;
-        // console.log(req.user);
+        console.log(req.user);
         next();
       });
     });
