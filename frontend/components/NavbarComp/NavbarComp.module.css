@@ -1,0 +1,13 @@
+.active_navItem_style{
+    text-decoration: none;
+    color:rgb(223, 162, 49);
+    font-weight: bold;
+    border-bottom: 2px solid rgb(223, 162, 49);
+    margin: 0 10px;
+}
+
+.navItem_style{
+    text-decoration: none;
+    color:white;
+    padding: 0 10px;
+}
