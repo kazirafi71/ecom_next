@@ -11,6 +11,17 @@ module.exports.getAllProducts__controller = async (req, res) => {
   }
 };
 
+module.exports.productDetails__controller = async (req, res) => {
+  try {
+    const { productId } = req.params;
+    const productDetails = await ProductModel.findOne({ _id: productId });
+
+    return res.status(200).json(productDetails);
+  } catch (error) {
+    return res.status(400).json({ error: "Something went wrong" });
+  }
+};
+
 module.exports.addProduct__controller = async (req, res) => {
   try {
     const { name, description, price, quantity } = req.body;
@@ -41,8 +52,9 @@ module.exports.addProduct__controller = async (req, res) => {
 
     const saveInfo = await newProd.save();
 
-    return res.status(201).json({ success: "New product added" });
+    return res.status(201).json({ success: "New product added", saveInfo });
   } catch (error) {
-    return res.status(400).json({ error: "Something went wrong", error });
+    console.log(error);
+    return res.status(400).json({ error: "Something went wrong" });
   }
 };

@@ -17,15 +17,26 @@ module.exports = {
     jwt.verify(token, process.env.SECRET_KEY, (err, payload) => {
       if (err) {
         return res.status(404).json({
-          error: "You must be logged in",
+          error: "Invalid credentials",
         });
       }
+
       let { _id } = payload;
-      User.findById({ _id }).then((userData) => {
-        req.user = userData;
-        console.log(req.user);
-        next();
-      });
+      User.findOne({ _id: _id })
+        .then((userData) => {
+          if (!userData) {
+            return res.status(404).json({
+              error: "Invalid credentials",
+            });
+          }
+          req.user = userData;
+          next();
+        })
+        .catch((err) => {
+          return res.status(404).json({
+            error: "Invalid credentials",
+          });
+        });
     });
   },
 };
