@@ -43,7 +43,7 @@ const ProductDetails = ({ prodDetails }) => {
 export async function getStaticProps(context) {
   const { productId } = context.params;
 
-  const res = await fetch(`${process.env.API_URL}/api/products/${productId}`);
+  const res = await fetch(`${baseUrl}/api/products/${productId}`);
   const data = await res.json();
 
   return {
@@ -52,7 +52,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.API_URL}/api/all-products`);
+  const res = await fetch(`${baseUrl}/api/all-products`);
   const prod = await res.json();
 
   const paths = prod.allProducts.map((item) => ({

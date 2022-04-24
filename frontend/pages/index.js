@@ -54,7 +54,7 @@ export default function Home({ products }) {
 }
 
 export async function getStaticProps(context) {
-  const prod = await fetch(`${process.env.API_URL}/api/all-products`);
+  const prod = await fetch(`${baseUrl}/api/all-products`);
   const data = await prod.json();
   return {
     props: {
