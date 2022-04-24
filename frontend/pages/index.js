@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useRouter } from "next/router";
+import baseUrl from "../utils/baseUrl";
 
 export default function Home({ products }) {
   const router = useRouter();

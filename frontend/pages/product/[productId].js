@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Container, Card, Row, Col, Button } from "react-bootstrap";
 import Image from "next/image";
+import baseUrl from "../../utils/baseUrl";
 
 const ProductDetails = ({ prodDetails }) => {
   const router = useRouter();
