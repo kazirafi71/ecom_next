@@ -40,6 +40,7 @@ const Create = () => {
       },
     })
       .then((result) => {
+        console.log(result.data);
         toast.success(`${result.data.success}`, {
           position: "top-right",
           autoClose: 5000,
@@ -53,7 +54,7 @@ const Create = () => {
       })
       .catch((err) => {
         setErrorMsg(err.response.data);
-        // console.log(err.response.data);
+        console.log(err.response.data);
       });
   };
 

@@ -45,8 +45,8 @@ module.exports.addProduct__controller = async (req, res) => {
       description,
       price,
       quantity,
-      image: imageInfo.secure_url,
-      asset_id: imageInfo.asset_id,
+      image: imageInfo?.secure_url,
+      asset_id: imageInfo?.asset_id,
       createdAt: req.user._id,
     });
 
@@ -55,6 +55,6 @@ module.exports.addProduct__controller = async (req, res) => {
     return res.status(201).json({ success: "New product added", saveInfo });
   } catch (error) {
     console.log(error);
-    return res.status(400).json({ error: "Something went wrong" });
+    return res.status(400).json({ error: "Something went wrong", error });
   }
 };
