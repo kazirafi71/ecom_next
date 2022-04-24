@@ -15,7 +15,12 @@ const ProductDetails = ({ prodDetails }) => {
         <Row>
           <Col md={8} className="mx-auto">
             <Card className="p-3">
-              <Image src={prodDetails.image} width={1000} height={550} />
+              <Image
+                src={prodDetails.image}
+                width={1000}
+                height={550}
+                alt="Product Image"
+              />
               <h4>{prodDetails.price}Taka</h4>
               <h6>Quantity :</h6>
               <form action="">
