@@ -11,6 +11,7 @@ import {
 import Axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
+import baseUrl from "../utils/baseUrl";
 
 const Create = () => {
   const [name, setName] = useState("");
@@ -31,7 +32,7 @@ const Create = () => {
     formData.append("price", price);
     formData.append("quantity", quantity);
 
-    Axios.post(`http://localhost:5000/api/add-product`, formData, {
+    Axios.post(`${baseUrl}/api/add-product`, formData, {
       headers: {
         Authorization:
           "Bearer " +
