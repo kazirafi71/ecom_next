@@ -15,7 +15,7 @@ export default function Home({ products }) {
           products?.map((item, index) => {
             return (
               <Col className="py-2" key={index} lg={3} md={4}>
-                <Card style={{ height: "480px" }}>
+                <Card style={{ height: "530px" }}>
                   <Card.Img
                     variant="top"
                     style={{ height: "250px", width: "100%" }}
@@ -23,11 +23,11 @@ export default function Home({ products }) {
                   />
                   <Card.Body>
                     <Card.Title className="text-success">
-                      {item.name.slice(0, 50)}
+                      {item.name.slice(0, 30)}
                     </Card.Title>
                     <h6>{item.price} Taka</h6>
-                    <Card.Text style={{ height: "70px" }}>
-                      {item.description.slice(0, 100)}
+                    <Card.Text style={{ height: "50px", fontSize: "14px" }}>
+                      {item.description.slice(0, 80)}
                     </Card.Text>
 
                     <div className="d-flex align-items-center justify-content-between flex-wrap">

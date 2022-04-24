@@ -12,6 +12,7 @@ import Axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
 import baseUrl from "../utils/baseUrl";
+import { parseCookies } from "nookies";
 
 const Create = () => {
   const [name, setName] = useState("");
@@ -21,6 +22,7 @@ const Create = () => {
   const [quantity, setQuantity] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const router = useRouter();
+  const { auth_token } = parseCookies();
 
   const productFormHandler = (e) => {
     e.preventDefault();
@@ -34,9 +36,7 @@ const Create = () => {
 
     Axios.post(`${baseUrl}/api/add-product`, formData, {
       headers: {
-        Authorization:
-          "Bearer " +
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjYzYWM5YmI3MjkzYTVjNjI2YWFkZmYiLCJpYXQiOjE2NTA2OTk0NTh9.CML2GTO7r0Rwl_DDKRxot-GlfPYsIaMj-7_CN8Tq-3E",
+        Authorization: "Bearer " + auth_token,
       },
     })
       .then((result) => {
