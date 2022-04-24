@@ -12,7 +12,7 @@ import Link from "next/link";
 import baseUrl from "./../utils/baseUrl";
 import { useRouter } from "next/router";
 
-const signup = () => {
+const Signup = () => {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -113,4 +113,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default Signup;

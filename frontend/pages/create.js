@@ -12,7 +12,7 @@ import Axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
 
-const create = () => {
+const Create = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
@@ -39,7 +39,6 @@ const create = () => {
       },
     })
       .then((result) => {
-      
         toast.success(`${result.data.success}`, {
           position: "top-right",
           autoClose: 5000,
@@ -49,7 +48,7 @@ const create = () => {
           draggable: true,
           progress: undefined,
         });
-        router.push("/")
+        router.push("/");
       })
       .catch((err) => {
         setErrorMsg(err.response.data);
@@ -122,4 +121,4 @@ const create = () => {
   );
 };
 
-export default create;
+export default Create;
