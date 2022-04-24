@@ -84,8 +84,8 @@ const Login = () => {
                 </Form.Group>
 
                 <p>
-                  Don't have an account?{" "}
-                  <Link href="/register">Registration</Link>
+                  {` Don't have an account?`}
+                  <Link href="/signup">Registration</Link>
                 </p>
                 <Button type="submit" variant="outline-dark">
                   Login
